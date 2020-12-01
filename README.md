@@ -27,5 +27,6 @@ First enable developer mode.
 2. In the Appearance settings on the right, scroll all the way to the bottom to the Advanced section and click the switch to the right of Developer Mode .
 - When asked for "who you would like to ping" right click on the desired user and hit "Copy ID" then put a @ in front of ID. 
 - When asked for "where you would like to ping" right click the channel, for example general and "Copy ID".
+![image](https://i.imgur.com/bDxxoIu.png)
 # Disclaimer
 Selfbots officially violate Discord ToS. I take no responsibility for consequent actions taken against user accounts.
