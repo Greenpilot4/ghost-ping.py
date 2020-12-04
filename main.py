@@ -20,11 +20,29 @@ async def main():
     ██║   ██║██╔══██║██║   ██║╚════██║   ██║       ██╔═══╝ ██║██║╚██╗██║██║   ██║
     ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║       ██║     ██║██║ ╚████║╚██████╔╝
      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═══╝ ╚═════╝               
-    """ + Fore.RESET)
-    victim = str(input("Please enter who you would like to ping: "))
-    victimChannel = int(input("Please enter where you would like to ping (channel ID): "))
-    pingInterval = int(input("Please enter how often you would to ping (in seconds): "))
-    repeats = int(input("Please enter how many times you would like to ping: "))
+    """ + Fore.YELLOW)
+
+    victim = str(input("[-] User to ping: "))
+    victimChannel = int(input("[-] Message channel: "))
+    repeats = int(input("[-] Ping repeats: "))
+    pingmessage = input("[-] Message (Press enter for no message): ")
+    deletemessageInput = input("[-] Ghost ping?: ")
+
+    if pingmessage == "":
+        pingmessage = None
+        pingmessageBool = False
+    else:
+        pingmessageBool = True
+
+    if deletemessageInput == "yes" or deletemessageInput == "y":
+        deletemessageBool = True
+    else:
+        deletemessageBool = False
+
+    if repeats > 1:
+        pingInterval = int(input("[-] Ping interval: "))
+    else:
+        pingInterval = 0
 
     if victim == "@everyone" or victim == "everyone":
         user = "@everyone"
@@ -33,28 +51,35 @@ async def main():
     elif len(victim) == 19:
         user = "<" + victim + ">"
     else:
-        print("Invalid User!")
-    await pingg(user, victimChannel, pingInterval, repeats)
-    return
+        print(Fore.RED + "Invalid User!")
+    await pingg(user, victimChannel, pingInterval, repeats, pingmessage, pingmessageBool, deletemessageBool)
 
-async def pingg(user, victimChannel, pingInterval, repeats):
+async def pingg(user, victimChannel, pingInterval, repeats, pingmessage, pingmessageBool, deletemessageBool):
     counter = 0
+    print(Fore.LIGHTCYAN_EX + "\n[*] Pinging..\n")
     while counter != repeats:
         channel = bot.get_channel(victimChannel)
-        msg = await channel.send(user)
+        if pingmessageBool == True:
+            charTT = "||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||"
+            msg = await channel.send(pingmessage + charTT + user)
+            if deletemessageBool == True:
+                await msg.delete()
+        else:
+            msg = await channel.send(user)
+            if deletemessageBool == True:
+                await msg.delete()
 
-        await msg.delete()
         await asyncio.sleep(pingInterval)
+
         counter += 1
-        print("Pinged " + str(counter) + " time(s)..")
+        print(Fore.CYAN + "[+] Pinged " + str(counter) + " time(s)..")
+
         if counter == repeats:
-            print("All done!")
+            print(Fore.LIGHTYELLOW_EX + "\n[+] All done!")
             await main()
-    return
 
 @bot.event
 async def on_ready():
     await main()
-    return
 
 bot.run(token, bot=False)
