@@ -20,8 +20,11 @@ It is possible to use this on android.
 - Note that if this command does not work install git with `sudo apt-get install git`
 - Then type `cd ghost-ping`
 - After that type `pip install -r requirements.txt`
+- Then have your token ready 
+- Run `nano token.json`
+- Put in token `"token": "TOKEN GOES HERE"`
 - Once done you can then run the program with `python main.py`
-- If python or pip does not work run `sudo apt-get install python pip`
+- Note if python or pip does not work run `sudo apt-get install python pip`
 ## Getting User Token 
 1. Press Ctrl+Shift+I on Discord to show developer tools.
 2. Navigate to the **Application** tab.
