@@ -31,6 +31,10 @@ It is possible to use this on android.
 - Once done you can then run the program with `python main.py`
 - Note: If python or pip does not work run `sudo apt-get install python pip`
 ## Getting User Token 
+
+### Follow Video 
+- https://www.youtube.com/watch?v=YEgFvgg7ZPI
+### Or
 1. Press Ctrl+Shift+I on Discord to show developer tools.
 2. Navigate to the **Application** tab.
 3. Select Local Storage > https://discordapp.com on the left.
