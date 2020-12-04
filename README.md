@@ -13,6 +13,15 @@ If you wish to avoid installing python and its dependencies, you can run the EXE
 - Extract to a folder. 
 - Change `token` in token.json to your user token. 
 - Run the `ghost(version).exe` file. 
+### Android
+It is possible to use this on android. 
+- On the app store search and download "Termux"
+- Open the app and paste this command `git clone https://github.com/Greenpilot4/ghost-ping.git`
+- Note that if this command does not work install git with `sudo apt-get install git`
+- Then type `cd ghost-ping`
+- After that type `pip install -r requirements.txt`
+- Once done you can then run the program with `python main.py`
+- If python or pip do not work run `sudo apt-get install python pip
 ## Getting User Token 
 1. Press Ctrl+Shift+I on Discord to show developer tools.
 2. Navigate to the **Application** tab.
