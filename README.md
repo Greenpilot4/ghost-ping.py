@@ -21,7 +21,7 @@ It is possible to use this on android.
 - Then type `cd ghost-ping`
 - After that type `pip install -r requirements.txt`
 - Once done you can then run the program with `python main.py`
-- If python or pip do not work run `sudo apt-get install python pip
+- If python or pip does not work run `sudo apt-get install python pip`
 ## Getting User Token 
 1. Press Ctrl+Shift+I on Discord to show developer tools.
 2. Navigate to the **Application** tab.
