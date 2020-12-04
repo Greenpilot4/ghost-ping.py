@@ -12,7 +12,7 @@ If you wish to avoid installing python and its dependencies, you can run the EXE
 - Download latest version.
 - Extract to a folder. 
 - Change `token` in token.json to your user token. 
-- Run the `GHOST.EXE` file. 
+- Run the `ghost(version).exe` file. 
 ## Getting User Token 
 1. Press Ctrl+Shift+I on Discord to show developer tools.
 2. Navigate to the **Application** tab.
@@ -27,6 +27,6 @@ First enable developer mode.
 2. In the Appearance settings on the right, scroll all the way to the bottom to the Advanced section and click the switch to the right of Developer Mode .
 - When asked for "who you would like to ping" right click on the desired user and hit "Copy ID" then put a @ in front of ID. 
 - When asked for "where you would like to ping" right click the channel, for example general and "Copy ID".
-![image](https://i.imgur.com/bDxxoIu.png)
+![image](https://i.imgur.com/KYKLO9v.png)
 # Disclaimer
 Selfbots officially violate Discord ToS. I take no responsibility for consequent actions taken against user accounts.
