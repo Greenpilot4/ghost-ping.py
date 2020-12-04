@@ -17,14 +17,15 @@ If you wish to avoid installing python and its dependencies, you can run the EXE
 It is possible to use this on android. 
 - On the app store search and download "Termux"
 - Open the app and paste this command `git clone https://github.com/Greenpilot4/ghost-ping.git`
-- Note that if this command does not work install git with `sudo apt-get install git`
+- Note: If this command does not work install git with `sudo apt-get install git`
 - Then type `cd ghost-ping`
 - After that type `pip install -r requirements.txt`
 - Then have your token ready 
 - Run `nano token.json`
-- Put in token `"token": "TOKEN GOES HERE"`
+- Put in token `"token": "TOKEN GOES HERE"` 
+- Note: If you dont have the token follow steps on the section below. 
 - Once done you can then run the program with `python main.py`
-- Note if python or pip does not work run `sudo apt-get install python pip`
+- Note: If python or pip does not work run `sudo apt-get install python pip`
 ## Getting User Token 
 1. Press Ctrl+Shift+I on Discord to show developer tools.
 2. Navigate to the **Application** tab.
