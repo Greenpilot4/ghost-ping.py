@@ -13,18 +13,22 @@ bot = commands.Bot(command_prefix="*!*", self_bot=True)
 
 async def main():
     os.system('cls')
-    print(Fore.RED + """\
+    print(Fore.LIGHTRED_EX + """\n
      ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗    ██████╗ ██╗███╗   ██╗ ██████╗ 
     ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝    ██╔══██╗██║████╗  ██║██╔════╝ 
     ██║  ███╗███████║██║   ██║███████╗   ██║       ██████╔╝██║██╔██╗ ██║██║  ███╗
     ██║   ██║██╔══██║██║   ██║╚════██║   ██║       ██╔═══╝ ██║██║╚██╗██║██║   ██║
     ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║       ██║     ██║██║ ╚████║╚██████╔╝
      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═══╝ ╚═════╝               
-    """ + Fore.YELLOW)
+    """ + Fore.LIGHTYELLOW_EX)
 
     victim = str(input("[-] User to ping: "))
     victimChannel = int(input("[-] Message channel: "))
     repeats = int(input("[-] Ping repeats: "))
+    if repeats > 1:
+        pingInterval = int(input("[-] Ping interval: "))
+    else:
+        pingInterval = 0
     pingmessage = input("[-] Message (Press enter for no message): ")
     deletemessageInput = input("[-] Ghost ping?: ")
 
@@ -39,10 +43,6 @@ async def main():
     else:
         deletemessageBool = False
 
-    if repeats > 1:
-        pingInterval = int(input("[-] Ping interval: "))
-    else:
-        pingInterval = 0
 
     if victim == "@everyone" or victim == "everyone":
         user = "@everyone"
@@ -69,14 +69,14 @@ async def pingg(user, victimChannel, pingInterval, repeats, pingmessage, pingmes
             if deletemessageBool == True:
                 await msg.delete()
 
-        await asyncio.sleep(pingInterval)
-
         counter += 1
         print(Fore.CYAN + "[+] Pinged " + str(counter) + " time(s)..")
 
         if counter == repeats:
             print(Fore.LIGHTYELLOW_EX + "\n[+] All done!")
             await main()
+
+        await asyncio.sleep(pingInterval)
 
 @bot.event
 async def on_ready():
