@@ -4,7 +4,9 @@ import json
 import asyncio
 import os
 
-init()
+if os == "Windows":
+    init()
+
 with open('token.json') as f:
     data = json.load(f)
 
@@ -12,7 +14,11 @@ token = data['token']
 bot = commands.Bot(command_prefix="*!*", self_bot=True)
 
 async def main():
-    os.system('cls')
+    if os == "Windows":
+        system("cls")
+    else:
+        system("clear")
+    print(chr(27) + "[2J")
     print(Fore.LIGHTRED_EX + """\n
      ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗    ██████╗ ██╗███╗   ██╗ ██████╗ 
     ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝    ██╔══██╗██║████╗  ██║██╔════╝ 
