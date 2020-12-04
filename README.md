@@ -1,5 +1,9 @@
 # Ghost-Ping
 Selfbot for ghost pinging.
+## Usage
+- If you are not on windows use the "Python Usage" Section
+- If you are on windows use the "Running Exe" Section
+- If you are on android use the "Android" Section
 ### Python Usage
 If you wish to run python source, 
 - Download python 3.6 + 
